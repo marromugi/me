@@ -6,7 +6,7 @@ export default async function Home() {
   const posts = await getAllPosts();
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col items-center">
+    <div className="min-h-screen flex flex-col items-center">
       <div className="flex flex-col gap-4 w-full max-w-[40em] mx-auto pt-4">
         <p className="text-sm">
           普段はフロントエンドの実装をしています。

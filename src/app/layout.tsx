@@ -42,7 +42,8 @@ export default function RootLayout({
       <body
         className={clsx(
           `${zenOldMincho.variable} ${ubuntu.variable} ${zenKakuGothicAntique.variable}`,
-          'bg-gray-50 text-gray-800 antialiased font-serif',
+          'w-screen min-h-dvh bg-gray-50 text-gray-800 antialiased font-serif',
+          'px-4 max-md:px-3',
         )}
         style={{
           fontFeatureSettings: 'palt',
@@ -50,7 +51,7 @@ export default function RootLayout({
       >
         <FontProvider>
           <header
-            className={clsx('p-4 bg-gray-50', 'sticky top-0 z-10')}
+            className={clsx('py-4 bg-gray-50', 'sticky top-0 z-10')}
           >
             <div className={clsx('max-w-[40em] mx-auto')}>
               <Link href={'/'}>
@@ -62,7 +63,7 @@ export default function RootLayout({
                 'block h-4 w-full',
                 'absolute -bottom-4',
                 'bg-gradient-to-t',
-                'from-[#00000000] to-gray-50',
+                'from-[#00000000] to-gray-50 max-w-[40em]',
               )}
             ></span>
           </header>

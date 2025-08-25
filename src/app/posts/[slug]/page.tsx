@@ -81,7 +81,7 @@ export default async function ResumePage({
           下書き
         </span>
       )}
-      <div className="max-w-[42em] mx-auto px-4 py-8 sm:px-6 lg:px-8">
+      <div className="max-w-[42em] mx-auto px-2 py-8 sm:px-6 lg:px-8">
         <img
           src={frontmatter.cover}
           alt={frontmatter.title || 'Cover image'}
