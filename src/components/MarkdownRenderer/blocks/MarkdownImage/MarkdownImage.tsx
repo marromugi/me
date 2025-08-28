@@ -12,7 +12,7 @@ export const MarkdownImage = ({ node }: MarkdownImageProps) => {
     return (
       <span
         className={clsx(
-          'block my-4 p-4 rounded-md bg-gray-100',
+          'block my-6 p-4 rounded-md bg-gray-100',
           'text-sm text-gray-600',
         )}
       >
@@ -27,7 +27,7 @@ export const MarkdownImage = ({ node }: MarkdownImageProps) => {
       alt={node.alt || ''}
       title={node.title || undefined}
       loading="lazy"
-      className={`h-auto rounded ${isLoading ? 'opacity-0 blur-xl' : 'opacity-100 blur-none'} my-4 transition-opacity duration-300`}
+      className={`h-auto rounded-lg ${isLoading ? 'opacity-0 blur-xl' : 'opacity-100 blur-none'} my-6 transition-opacity duration-300`}
       onLoad={() => setIsLoading(false)}
       onError={() => {
         setIsError(true);

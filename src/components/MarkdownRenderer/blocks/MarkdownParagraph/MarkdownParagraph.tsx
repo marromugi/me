@@ -5,7 +5,7 @@ export const MarkdownParagraph = ({
   children,
 }: MarkdownParagraphProps) => {
   return (
-    <p className="my-4 leading-relaxed whitespace-pre-wrap">
+    <p className="my-4 leading-[1.875em] whitespace-pre-wrap">
       {children}
     </p>
   );

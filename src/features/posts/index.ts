@@ -51,7 +51,7 @@ export const getAllPosts = async () => {
       .sort((prev, next) => {
         const prevIndex = prev.split('_')[0];
         const nextIndex = next.split('_')[0];
-        return prevIndex > nextIndex ? 1 : -1;
+        return prevIndex > nextIndex ? -1 : 1;
       })
       .map((s) => getPostContent(s)),
   );
