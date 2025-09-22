@@ -72,7 +72,7 @@ type SampleFilterSchema = typeof sampleSchema;
 type SampleFilterValues = FilterValue<SampleFilterSchema>;
 
 /**
- * type SampleFilterTypes = "customDateRange" | "text" | "select" | "customDateRange"
+ * type SampleFilterTypes = "text" | "select" | "customDateRange"
  */
 type SampleFilterTypes = FilterType<SampleFilterSchema>;
 ```
@@ -89,7 +89,7 @@ type FilterBaseField<T> = {
   label: string;
   description?: string;
   disabled?: boolean;
-  _value?: T; // param to get value type
+  _value?: T; // parameter to get value type
 };
 ```
 
@@ -205,14 +205,12 @@ const schema = {
     type: 'text',
     label: 'Email',
     description: 'Enter your email address',
-    meta: {
-      validate: (value: string) => {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(value)) {
-          return { result: false, message: 'Please enter a valid email address' };
-        }
-        return { result: true };
-      },
+    validate: (value: string) => {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(value)) {
+        return { result: false, message: 'Please enter a valid email address' };
+      }
+      return { result: true };
     },
     // _value: string // 定義しなくても問題ないが、定義はできる & エディタ側の予測変換で出てくる
   } satisfies FilterTextField
@@ -265,14 +263,12 @@ const schema = {
   email: createFieldHelper.text({
     label: 'Email',
     description: 'Enter your email address',
-    meta: {
-      validate: (value: string) => {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(value)) {
-          return { result: false, message: 'Please enter a valid email address' };
-        }
-        return { result: true };
-      },
+    validate: (value: string) => {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(value)) {
+        return { result: false, message: 'Please enter a valid email address' };
+      }
+      return { result: true };
     },
   })
 } satisfies FilterSchema;
@@ -430,14 +426,12 @@ export const schema = {
   email: createFieldHelper.text({
     label: 'Email',
     description: 'アカウントのメールアドレスを設定してください',
-    meta: {
-      validate: (value: string) => {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(value)) {
-          return { result: false, message: 'Please enter a valid email address' };
-        }
-        return { result: true };
-      },
+    validate: (value: string) => {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(value)) {
+        return { result: false, message: 'Please enter a valid email address' };
+      }
+      return { result: true };
     },
   }),
 
@@ -445,13 +439,11 @@ export const schema = {
     label: 'Status',
     description: 'アカウントのステータスを設定してください',
     disabled: false,
-    meta: {
-      options: [
-        { label: 'アクティブ', value: 'active' },
-        { label: '無効', value: 'inactive' },
-        { label: '認証待ち', value: 'pending' },
-      ],
-    },
+    options: [
+      { label: 'アクティブ', value: 'active' },
+      { label: '無効', value: 'inactive' },
+      { label: '認証待ち', value: 'pending' },
+    ],
   }),
 }
 
