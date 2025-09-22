@@ -12,8 +12,28 @@ export function getRelativeTimeString(
   const diffInHours = Math.floor(diffInMinutes / 60);
   const diffInDays = Math.floor(diffInHours / 24);
   const diffInWeeks = Math.floor(diffInDays / 7);
-  const diffInMonths = Math.floor(diffInDays / 30);
-  const diffInYears = Math.floor(diffInDays / 365);
+
+  // Calculate months and years using proper date arithmetic
+  let diffInMonths = (now.getFullYear() - targetDate.getFullYear()) * 12 +
+                     (now.getMonth() - targetDate.getMonth());
+
+  // Adjust if the day of month hasn't been reached yet
+  if (now.getDate() < targetDate.getDate()) {
+    diffInMonths--;
+  }
+
+  // Ensure diffInMonths is not negative and handle edge case for 29-31 days
+  if (diffInMonths < 0) {
+    diffInMonths = 0;
+  }
+
+  // If it's been more than 28 days but diffInMonths is 0, set it to 1
+  // This handles months with 29-31 days
+  if (diffInMonths === 0 && diffInDays >= 28) {
+    diffInMonths = 1;
+  }
+
+  const diffInYears = Math.floor(diffInMonths / 12);
 
   const messages = {
     ja: {
