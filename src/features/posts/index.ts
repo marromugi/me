@@ -54,8 +54,8 @@ export const getAllPosts = async () => {
         const nextIndex = next.split('_')[0];
         return prevIndex > nextIndex ? -1 : 1;
       })
-      .map((s) => getPostContent(s)),
+      .map(async (s) => await getPostContent(s))
   );
 
-  return posts;
+  return posts.filter(p => process.env.NODE_ENV === "development" ? true : !p.frontmatter.draft);
 };
