@@ -109,9 +109,7 @@ type FilterBaseField<T> = {
 ```typescript
 export type FilterTextField = FilterBaseField<string> & {
   type: 'text';
-  meta: {
-    validate?: (value: string) => { result: true } | { result: false; message: string };
-  };
+  validate?: (value: string) => { result: true } | { result: false; message: string };
 };
 
 export type FilterSelectField<T> = FilterBaseField<T> & {
