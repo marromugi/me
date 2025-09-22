@@ -87,7 +87,7 @@ export default async function ResumePage({
           <img
             src={frontmatter.cover}
             alt={frontmatter.title || 'Cover image'}
-            className="rounded-lg max-h-[360px] object-contain"
+            className="rounded-[36px] max-h-[360px] object-contain"
           />
         </Flex>
         <h1
