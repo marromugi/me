@@ -22,14 +22,12 @@ export const sampleSchema = {
   email: createFieldHelper.text({
     label: 'Email',
     description: 'アカウントのメールアドレスを設定してください',
-    meta: {
-      validate: (value: string) => {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(value)) {
-          return { result: false, message: 'Please enter a valid email address' };
-        }
-        return { result: true };
-      },
+    validate: (value: string) => {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(value)) {
+        return { result: false, message: 'Please enter a valid email address' };
+      }
+      return { result: true };
     },
   }),
 
@@ -37,13 +35,11 @@ export const sampleSchema = {
     label: 'Status',
     description: 'アカウントのステータスを設定してください',
     disabled: false,
-    meta: {
-      options: [
-        { label: 'アクティブ', value: 'active' },
-        { label: '無効', value: 'inactive' },
-        { label: '認証待ち', value: 'pending' },
-      ],
-    },
+    options: [
+      { label: 'アクティブ', value: 'active' },
+      { label: '無効', value: 'inactive' },
+      { label: '認証待ち', value: 'pending' },
+    ],
   }),
 
   dateRange: createFieldHelper.custom<{ start: Date; end: Date }>()({
@@ -59,7 +55,7 @@ export const sampleSchema = {
 }
 
 const allFields = getAllFields(sampleSchema); // 全フィールドを配列で取得
-const field = getField(sampleSchema, 'dateRange'); // 特定のフィールドを取得
+const field = getField(sampleSchema, 'customDateRange'); // 特定のフィールドを取得
 
 type SampleFilterSchema = typeof sampleSchema;
 
@@ -67,7 +63,6 @@ type SampleFilterSchema = typeof sampleSchema;
  * type SampleFilterValues = {
     email?: string | undefined;
     status?: "active" | "inactive" | "pending" | undefined;
-    preferences?: string[] | undefined;
     dateRange?: {
         start: Date;
         end: Date;
@@ -77,7 +72,7 @@ type SampleFilterSchema = typeof sampleSchema;
 type SampleFilterValues = FilterValue<SampleFilterSchema>;
 
 /**
- * type SampleFilterTypes = "customDateRange" | "text" | "select" | "check"
+ * type SampleFilterTypes = "customDateRange" | "text" | "select" | "customDateRange"
  */
 type SampleFilterTypes = FilterType<SampleFilterSchema>;
 ```
