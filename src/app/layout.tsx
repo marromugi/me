@@ -63,7 +63,7 @@ export default function RootLayout({
                 'block h-4 w-full',
                 'absolute -bottom-4',
                 'bg-gradient-to-t',
-                'from-[#00000000] to-gray-50 max-w-[40em]',
+                'from-[#00000000] to-gray-50',
               )}
             ></span>
           </header>

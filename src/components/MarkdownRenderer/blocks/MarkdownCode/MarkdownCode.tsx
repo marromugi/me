@@ -18,7 +18,7 @@ export const MarkdownCode = async ({ node }: MarkdownCodeProps) => {
 
   return (
     <div
-      className="mb-4 overflow-x-auto rounded-md text-sm [&>pre]:p-4"
+      className="mb-4 w-full overflow-hidden rounded-xl text-sm [&>pre]:p-4 [&>pre]:overflow-x-auto"
       dangerouslySetInnerHTML={{ __html: highlightedCode }}
     />
   );

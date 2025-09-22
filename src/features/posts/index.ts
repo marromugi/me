@@ -33,13 +33,14 @@ export const getPostContent = async (slug: string) => {
 
   const frontmatter = frontmatterSchema.parse(data);
   const parsed = parser.parse(content);
+  const processed = await parser.run(parsed) as any;
   return {
-    content: parsed,
+    content: processed,
     frontmatter,
     slug,
     metadata: {
       relativeTime: getRelativeTimeString(frontmatter.date, 'en'),
-      readingTime: calculateReadingTimeFromAST(parsed),
+      readingTime: calculateReadingTimeFromAST(processed),
     },
   };
 };

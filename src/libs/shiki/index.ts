@@ -20,6 +20,7 @@ export async function getHighlighter(): Promise<Highlighter> {
       'cpp',
       'c',
       'yaml',
+      'swift',
       'sql',
       'graphql',
       'diff',

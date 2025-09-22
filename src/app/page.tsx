@@ -38,7 +38,7 @@ export default async function Home() {
                 width={64}
                 height={32}
                 src={p.frontmatter.cover ?? ''}
-                className="object-cover rounded-md"
+                className="object-cover rounded-md w-16 h-12"
               />
             </div>
           </Link>

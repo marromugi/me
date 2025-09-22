@@ -1,4 +1,4 @@
-import { Content } from 'mdast';
+import { RootContent } from 'mdast';
 import { Fragment, ReactElement } from 'react';
 import { MarkdownRendererProps } from './type';
 import { MarkdownHeading } from './blocks/MarkdownHeading';
@@ -18,9 +18,10 @@ import { MarkdownThematicBreak } from './blocks/MarkdownThematicBreak';
 import { MarkdownTable } from './blocks/MarkdownTable';
 import { MarkdownTableRow } from './blocks/MarkdownTableRow';
 import { MarkdownTableCell } from './blocks/MarkdownTableCell';
+import { MarkdownYoutubeEmbed } from './blocks/MarkdownYoutubeEmbed';
 
 const renderNode = (
-  node: Content,
+  node: RootContent,
   index: number,
   parentType?: string,
 ): ReactElement | null => {
@@ -131,6 +132,9 @@ const renderNode = (
           {node.children.map((child, i) => renderNode(child, i))}
         </MarkdownTableCell>
       );
+
+    case 'youtubeEmbed':
+      return <MarkdownYoutubeEmbed key={index} node={node as any} />;
 
     default:
       return null;

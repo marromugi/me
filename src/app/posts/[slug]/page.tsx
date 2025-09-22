@@ -7,6 +7,7 @@ import clsx from 'clsx';
 import { getAllSlugs, getPostContent } from '@/features/posts';
 import { MarkdownThematicBreak } from '@/components/MarkdownRenderer/blocks/MarkdownThematicBreak';
 import Link from 'next/link';
+import { Flex } from '@/components/layouts/Flex';
 
 type Params = { slug: string };
 
@@ -75,18 +76,20 @@ export default async function ResumePage({
   }
 
   return (
-    <div className="min-h-screen bg-white relative">
+    <div className="min-h-screen relative">
       {frontmatter.draft && (
         <span className="fixed right-4 top-4 font-sans px-4 py-2 text-sm rounded-full bg-red-600 text-white font-semibold">
           下書き
         </span>
       )}
       <div className="max-w-[42em] mx-auto px-2 py-8 sm:px-6 lg:px-8">
-        <img
-          src={frontmatter.cover}
-          alt={frontmatter.title || 'Cover image'}
-          className="rounded-lg"
-        />
+        <Flex center>
+          <img
+            src={frontmatter.cover}
+            alt={frontmatter.title || 'Cover image'}
+            className="rounded-lg max-h-[360px] object-contain"
+          />
+        </Flex>
         <h1
           className={clsx('font-semibold font-title text-2xl', 'mt-10')}
         >

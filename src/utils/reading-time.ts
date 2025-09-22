@@ -1,4 +1,4 @@
-import { Root, Content } from 'mdast';
+import { Root, RootContent } from 'mdast';
 
 interface ReadingTimeResult {
   text: string;
@@ -12,11 +12,16 @@ const WORDS_PER_MINUTE = 200;
 /**
  * Extracts text content from a markdown AST node recursively
  */
-function extractText(node: Content | Root): string {
+function extractText(node: RootContent | Root): string {
   let text = '';
 
   // Skip code blocks for more accurate reading time
   if (node.type === 'code') {
+    return '';
+  }
+
+  // Skip YouTube embeds (they don't contribute to reading time)
+  if (node.type === 'youtubeEmbed') {
     return '';
   }
 

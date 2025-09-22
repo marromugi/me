@@ -5,7 +5,7 @@ export const MarkdownListItem = ({
   children,
 }: MarkdownListItemProps) => {
   return (
-    <li className="marker:text-gray-500" style={{}}>
+    <li className="marker:text-gray-500 [&>*]:my-2" style={{}}>
       {children}
     </li>
   );
